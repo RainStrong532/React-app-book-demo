@@ -1,0 +1,1 @@
+export const DOMAIN_API = "http://localhost:8031/api/public/";
