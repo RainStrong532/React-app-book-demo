@@ -1,11 +1,19 @@
 {
-    "books": [
-        {
-            "book_id": 1,
-            "name": "Sách 2222",
-            "author": "Tác giả mới",
-            "price": 156000,
-            "description": "Thêm mới"
-        }
-    ]
+  "books": [
+    {
+      "id": 1,
+      "name": "Sách 2222",
+      "author": "Tác giả mới",
+      "price": 156000,
+      "description": "Thêm mới"
+    },
+    {
+      "book_id": 2,
+      "name": "abc",
+      "author": "234",
+      "price": 324123,
+      "description": "oke",
+      "id": 2
+    }
+  ]
 }
