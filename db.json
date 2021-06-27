@@ -1,0 +1,11 @@
+{
+    "books": [
+        {
+            "book_id": 1,
+            "name": "Sách 2222",
+            "author": "Tác giả mới",
+            "price": 156000,
+            "description": "Thêm mới"
+        }
+    ]
+}
