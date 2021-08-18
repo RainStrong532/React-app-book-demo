@@ -14,8 +14,8 @@ class DeleteModal extends React.Component {
     handleClose = () => { this.setState({ show: false }) };
     handleShow = () => { this.setState({ show: true }) };
     handleSubmit = () => {
-        if (this.props.handleSubmit && this.props.data.book_id) {
-            this.props.handleSubmit(this.props.data.book_id);
+        if (this.props.handleSubmit && this.props.data.id) {
+            this.props.handleSubmit(this.props.data.id);
         }
         this.handleClose();
     }

@@ -14,10 +14,7 @@ export const getListBook = function () {
                 return res.json();
             })
             .then(res => {
-                let a = res.map(item => {
-                    return { ...item, book_id: item.id }
-                })
-                resolve(a);
+                resolve(res);
             })
             .catch(err => {
                 reject(err);
@@ -26,7 +23,6 @@ export const getListBook = function () {
 }
 
 export const createBook = function (data) {
-    data.id = data.book_id;
     return new Promise((resolve, reject) => {
         console.log(data, "data");
         const URL = DOMAIN_API + 'books';
@@ -53,7 +49,7 @@ export const createBook = function (data) {
 
 export const updateBook = function (data) {
     return new Promise((resolve, reject) => {
-        const URL = DOMAIN_API + 'books/' + data.book_id;
+        const URL = DOMAIN_API + 'books/' + data.id;
 
         fetch(URL, {
             method: 'PUT',
@@ -74,9 +70,9 @@ export const updateBook = function (data) {
     })
 }
 
-export const deleteBook = function (book_id) {
+export const deleteBook = function (id) {
     return new Promise((resolve, reject) => {
-        const URL = DOMAIN_API + 'books/' + book_id;
+        const URL = DOMAIN_API + 'books/' + id;
 
         fetch(URL, {
             method: 'DELETE',

@@ -8,12 +8,11 @@
       "description": "Thêm mới"
     },
     {
-      "book_id": 2,
-      "name": "abc",
-      "author": "234",
-      "price": 324123,
-      "description": "oke",
-      "id": 2
+      "id": 3,
+      "name": "a",
+      "author": "c",
+      "price": 12000,
+      "description": "wer"
     }
   ]
 }

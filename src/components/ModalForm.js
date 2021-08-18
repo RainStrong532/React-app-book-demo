@@ -10,7 +10,7 @@ class ModalForm extends React.Component {
         this.state = {
             show: false,
             book: {
-                book_id: null,
+                id: null,
                 name: "",
                 author: "",
                 price: 0,
