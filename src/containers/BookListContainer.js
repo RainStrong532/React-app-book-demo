@@ -1,37 +1,40 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Spinner } from 'react-bootstrap';
 import BookListComponent from '../components/BookListComponent'
 import ModalForm from '../components/ModalForm';
 
-import {createBook, getListBook} from '../fetchApi/book'
+import { createBook, getListBook } from '../fetchApi/book'
 
 class BookListContainer extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.getListBookFromContainer = this.getListBookFromContainer.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
-            listBook: []
+            listBook: [],
+            isLoading: false,
         }
     }
 
-    getListBookFromContainer = async function(){
-        try{
+    getListBookFromContainer = async function () {
+        this.setState({ isLoading: true });
+        try {
             const res = await getListBook();
-            this.setState({listBook: [...res]});
-        }catch(err){
+            this.setState({ listBook: [...res] });
+        } catch (err) {
             alert(err);
         }
+        this.setState({ isLoading: false });
     }
-    handleSubmit =  async function(data){
-        try{
+    handleSubmit = async function (data) {
+        try {
             await createBook(data);
             this.getListBookFromContainer() // Lấy lại dữ liệu sau khi thêm thành công
-        }catch(err){
+        } catch (err) {
             alert(err);
         }
     }
-    componentDidMount(){
+    componentDidMount() {
         this.getListBookFromContainer();
     }
     render() {
@@ -39,13 +42,23 @@ class BookListContainer extends React.Component {
             <Container>
                 <h1>Trang danh sách sách</h1>
                 <ModalForm
-                  actions="Thêm mới"
-                  title="Thêm mới sách"
-                  variant="success"
-                  handleSubmit={this.handleSubmit}
+                    actions="Thêm mới"
+                    title="Thêm mới sách"
+                    variant="success"
+                    handleSubmit={this.handleSubmit}
                 />
                 <span className="mb-3 d-block"></span>
-                <BookListComponent listBook={this.state.listBook} getListBook={this.getListBookFromContainer}/>
+                {
+                    this.state.isLoading
+                        ?
+                        <Spinner className="mt-5" animation="border" role="status" size="xl">
+                        </Spinner>
+                        :
+                        <BookListComponent
+                            listBook={this.state.listBook}
+                            getListBook={this.getListBookFromContainer}
+                        />
+                }
             </Container>
         )
     }

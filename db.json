@@ -13,6 +13,13 @@
       "author": "c",
       "price": 12000,
       "description": "wer"
+    },
+    {
+      "id": 4,
+      "name": "okla",
+      "author": "b",
+      "price": 12000,
+      "description": "wer"
     }
   ]
 }
