@@ -26,6 +26,15 @@ class ModalForm extends React.Component {
         }
         this.handleClose();
     }
+    componentDidUpdate(prevProps){
+        if(prevProps.title !== this.props.title){
+            const book = { ...this.props.data };
+            this.setState(state => ({
+                book: { ...state.book, ...book },
+            }));
+        }
+    }
+
     componentDidMount() {
         if (this.props.data) {
             const book = { ...this.props.data };

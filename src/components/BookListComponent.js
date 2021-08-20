@@ -32,9 +32,8 @@ class BookListComponent extends React.Component {
     }
     render() {
         let listBook = [];
-        let self = this;
         if (this.props.listBook) {
-            listBook = this.props.listBook.map(function (item, index) {
+            listBook = this.props.listBook.map( (item, index) => {
                 return (
                     <tr key={index}>
                         <td>{index + 1}</td>
@@ -45,13 +44,13 @@ class BookListComponent extends React.Component {
                         <td>
                             <ModalForm
                                 actions="Cập nhật"
-                                title={`Cập nhật sách với tên ${item.name}`}
+                                title={`Cập nhật sách ${item.name} có id là ${item.id}`}
                                 data={item}
-                                handleSubmit={self.updateBookFromComponent}
+                                handleSubmit={this.updateBookFromComponent}
                             />
                             <span className="m-3"></span>
                             <DeleteModal
-                                handleSubmit={self.deleteBookFromComponent}
+                                handleSubmit={this.deleteBookFromComponent}
                                 data={item}
                             />
                         </td>
