@@ -3,23 +3,30 @@
     {
       "id": 1,
       "name": "Sách 2222",
-      "author": "Tác giả mới",
+      "author": "Tác giả mới 1",
       "price": 156000,
       "description": "Thêm mới"
     },
     {
       "id": 3,
-      "name": "a",
-      "author": "c",
+      "name": "Tên sách",
+      "author": "aaaaa",
       "price": 12000,
       "description": "wer"
     },
     {
-      "id": 4,
-      "name": "okla",
+      "id": 6,
+      "name": "Tôi thấy hoa vàng trên cỏ xanh",
+      "author": "Nguyễn Nhật Ánh",
+      "price": 210000,
+      "description": "Cuốn sách này rất cuốn"
+    },
+    {
+      "id": 7,
+      "name": "a",
       "author": "b",
-      "price": 12000,
-      "description": "wer"
+      "price": 10,
+      "description": "pppp"
     }
   ]
 }

@@ -2,12 +2,13 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 import ModalForm from './ModalForm';
 import DeleteModal from './DeleteModal';
-import { deleteBook, updateBook } from '../fetchApi/book';
+import { deleteBook, updateBook } from '../services/book';
 
 class BookListComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            inputText: ""
         }
     }
     updateBookFromComponent =  async (data) => {
@@ -30,10 +31,11 @@ class BookListComponent extends React.Component {
             alert(err);
         } 
     }
+
     render() {
         let listBook = [];
         if (this.props.listBook) {
-            listBook = this.props.listBook.map( (item, index) => {
+            listBook = this.props.listBook.map((item, index) => {
                 return (
                     <tr key={index}>
                         <td>{index + 1}</td>
