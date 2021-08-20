@@ -7,26 +7,24 @@ import { deleteBook, updateBook } from '../fetchApi/book';
 class BookListComponent extends React.Component {
     constructor(props) {
         super(props);
-        this.updateBookFromComponent = this.updateBookFromComponent.bind(this);
-        this.deleteBookFromComponent = this.deleteBookFromComponent.bind(this);
         this.state = {
         }
     }
-    updateBookFromComponent =  async function(data) {
+    updateBookFromComponent =  async (data) => {
         try{
             await updateBook(data);
             if(this.props.getListBook){
-                this.props.getListBook();
+                this.props.getListBook(0);
             }
         }   catch(err){
             alert(err);
         } 
     }
-    deleteBookFromComponent =  async function(data) {
+    deleteBookFromComponent =  async (data) => {
         try{
             await deleteBook(data);
             if(this.props.getListBook){
-                this.props.getListBook();
+                this.props.getListBook(0);
             }
         }   catch(err){
             alert(err);
@@ -34,9 +32,7 @@ class BookListComponent extends React.Component {
     }
     render() {
         let listBook = [];
-        const updateBookFromComponent = this.updateBookFromComponent;
-        const deleteBookFromComponent = this.deleteBookFromComponent;
-
+        let self = this;
         if (this.props.listBook) {
             listBook = this.props.listBook.map(function (item, index) {
                 return (
@@ -51,11 +47,11 @@ class BookListComponent extends React.Component {
                                 actions="Cập nhật"
                                 title={`Cập nhật sách với tên ${item.name}`}
                                 data={item}
-                                handleSubmit={updateBookFromComponent}
+                                handleSubmit={self.updateBookFromComponent}
                             />
-                            <span className="mr-3"></span>
+                            <span className="m-3"></span>
                             <DeleteModal
-                                handleSubmit={deleteBookFromComponent}
+                                handleSubmit={self.deleteBookFromComponent}
                                 data={item}
                             />
                         </td>

@@ -8,25 +8,26 @@ import { createBook, getListBook } from '../fetchApi/book'
 class BookListContainer extends React.Component {
     constructor(props) {
         super(props);
-        this.getListBookFromContainer = this.getListBookFromContainer.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             listBook: [],
             isLoading: false,
         }
     }
 
-    getListBookFromContainer = async function () {
-        this.setState({ isLoading: true });
+    getListBookFromContainer = async (setloading) => {
+        if(setloading)
+            this.setState({ isLoading: true });
         try {
             const res = await getListBook();
             this.setState({ listBook: [...res] });
         } catch (err) {
             alert(err);
+        }finally{
+            if(setloading)
+                this.setState({ isLoading: false });
         }
-        this.setState({ isLoading: false });
     }
-    handleSubmit = async function (data) {
+    handleSubmit = async (data) => {
         try {
             await createBook(data);
             this.getListBookFromContainer() // Lấy lại dữ liệu sau khi thêm thành công
