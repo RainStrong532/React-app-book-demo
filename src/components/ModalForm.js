@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
-import "../styles/modalFormStyle.css"
+import "../src/assets/styles/modalFormStyle.css"
 
 //link https://react-bootstrap.netlify.app/components/modal/#modals
 
